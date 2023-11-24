@@ -74,11 +74,19 @@ function generateId() {
 }
 
 function generateBookObject(id, title, author, year, isCompleted) {
+  // parse the year input to stored as a number
+  const parsedYear = Number(year);
+
+  if (isNaN(parsedYear)) {
+    alert('Please enter a valid year.');
+    return null;
+  }
+  
   return {
     id,
     title,
     author,
-    year,
+    year: parsedYear,
     isCompleted,
   };
 }
