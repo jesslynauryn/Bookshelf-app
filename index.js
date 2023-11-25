@@ -210,6 +210,7 @@ function moveBookToCompleted(bookId) {
   if (bookTarget == null || bookTarget.isCompleted) return;
 
   bookTarget.isCompleted = true;
+  saveData();
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
@@ -219,6 +220,7 @@ function moveBookToUncompleted(bookId) {
   if (bookTarget == null || !bookTarget.isCompleted) return;
 
   bookTarget.isCompleted = false;
+  saveData();
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
